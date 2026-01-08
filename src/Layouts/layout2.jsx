@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/Header/header'
 import Footer from '../components/Footer/footer'
+import { playSound } from '../components/audio'
 
 const Layout2 = ({ data, setPage, page, headerText, component1, component2, nextButtonDisabled, feedbackText }) => {
   return (
@@ -26,7 +27,10 @@ const Layout2 = ({ data, setPage, page, headerText, component1, component2, next
         </div>
 
         <div className='h-[10vh] w-screen justify-center items-center'>
-          <Footer data={data} page={page} setPage={setPage} nextButtonDisabled={nextButtonDisabled} />
+          <Footer data={data} page={page} setPage={(page) => {
+            setPage(page)
+            playSound('click')
+          }} nextButtonDisabled={nextButtonDisabled} />
         </div>
       </div>
     </>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../components/Buttons/button'
+import { playSound } from '../components/audio'
 
 
 const Layout1 = ({ page, data, setPage, onStart }) => {
@@ -27,7 +28,10 @@ const Layout1 = ({ page, data, setPage, onStart }) => {
                 <Button 
                     className='h-[10vh] w-[15vw] bg-red-500 text-white text-[3vw]' 
                     text={data.workingArea.startText} 
-                    onClick={() => setPage(2)}
+                    onClick={() => {
+                        setPage(2)
+                        playSound('click')
+                    }}
                 />
             </div>
         </>
