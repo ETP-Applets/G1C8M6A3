@@ -9,7 +9,7 @@ import Page6Lift from './components/states/page6Lift'
 import Page7Lift from './components/states/page7Lift'
 import Page8 from './Pages/page8'
 
-
+// ---------------------------------------------------
 function App() {
 
   const [data, setData] = useState(null)
