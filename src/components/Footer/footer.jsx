@@ -3,9 +3,9 @@ import Button from '../Buttons/button'
 import NavText from './navText'
 import PageInd from './pageInd'
 
-const footer = ({ data, totalPages = 6, page, setPage, playSound, nextButtonDisabled = false }) => {
+const footer = ({ data, totalPages = 6, page, setPage, playSound, nextButtonDisabled = false, navTextOverride }) => {
     return (
-        <div className="h-[10vh] w-screen flex justify-between items-center p-[1vh]">
+        <div className="h-[10vh] w-[70%] flex justify-between items-center p-[1vh]">
             <Button 
                 className='h-[8vh] w-[9vw] bg-[#F9A942]  text-[4vw] pb-[1vh]' 
                 text={data.navigatorArea.button1.text} 
@@ -15,8 +15,7 @@ const footer = ({ data, totalPages = 6, page, setPage, playSound, nextButtonDisa
                     }
                 }}
             />
-            {/* <PageInd totalPages={totalPages} page={page} /> */}
-            <NavText data={data} />
+            <NavText data={data} navTextOverride={navTextOverride} />
             <Button 
                 className={`h-[8vh] w-[9vw] text-[4vw] pb-[1vh] ${nextButtonDisabled ? 'bg-gray-400' : 'bg-[#F9A942]'}`}
                 text={data.navigatorArea.button2.text} 

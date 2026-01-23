@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline Applet</title>
+    
+    <!-- Load Libraries (Local) -->
+    <script src="./libs/react.development.js"></script>
+    <script src="./libs/react-dom.development.js"></script>
+    <script src="./libs/babel.min.js"></script>
+    <script src="./libs/motion-cdn.js"></script>
+    <script src="./libs/tailwind-cdn.js"></script>
+    
+    <script>
+      // Make motion components available globally
+      if (window.Motion && window.Motion.motion) {
+        window.motion = window.Motion.motion;
+      } else if (window.Motion) {
+        window.motion = {
+          polygon: React.forwardRef((props, ref) => {
+            const { initial, animate, transition, onAnimationComplete, ...rest } = props;
+            return React.createElement('polygon', { ...rest, ref });
+          }),
+          text: React.forwardRef((props, ref) => {
+            const { initial, animate, transition, onAnimationComplete, ...rest } = props;
+            return React.createElement('text', { ...rest, ref });
+          }),
+          div: React.forwardRef((props, ref) => {
+            const { initial, animate, transition, onAnimationComplete, ...rest } = props;
+            return React.createElement('div', { ...rest, ref });
+          })
+        };
+      }
+    </script>
+    <script src="./language-config.js"></script>
+    <!-- Load Data -->
+    <script src="./public/data.js"></script>
+    
+    <!-- Load CSS files -->
+    <link rel="stylesheet" href="./App.css" />
+    <link rel="stylesheet" href="./index.css" />
+    
+    <!-- Load Components -->
+    <script src="./components/audio.js"></script>
+    <!-- states -->
+    <script src="./components\states\page2Lift.js"></script>
+    <script src="./components\states\page3Lift.js"></script>
+    <script src="./components\states\page4Lift.js"></script>
+    <script src="./components\states\page5Lift.js"></script>
+    <script src="./components\states\page6Lift.js"></script>
+    <script src="./components\states\page7Lift.js"></script>
+    <!-- Buttons -->
+    <script src="./components\Buttons\button.js"></script>
+    <!-- Footer -->
+    <script src="./components\Footer\footer.js"></script>
+    <script src="./components\Footer\navText.js"></script>
+    <script src="./components\Footer\pageInd.js"></script>
+    <!-- Header -->
+    <script src="./components\Header\header.js"></script>
+    <!-- Table -->
+    <script src="./components\Table\table.js"></script>
+    <!-- Layouts -->
+    <script src="./Layouts\layout1.js"></script>
+    <script src="./Layouts\layout2.js"></script>
+    <script src="./Layouts\layout3.js"></script>
+    <!-- Pages -->
+    <script src="./Pages\page1.js"></script>
+    <script src="./Pages\page2.js"></script>
+    <script src="./Pages\page3.js"></script>
+    <script src="./Pages\page4.js"></script>
+    <script src="./Pages\page5.js"></script>
+    <script src="./Pages\page6.js"></script>
+    <script src="./Pages\page7.js"></script>
+    <script src="./Pages\page8.js"></script>
+    
+    <!-- Main App -->
+    <script src="./App.js"></script>
+    
+    <!-- Entry point -->
+    <script src="./main.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

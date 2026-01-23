@@ -4,7 +4,7 @@ body {
   font-family: Arial, sans-serif, Baloo;
   overflow: hidden;
   background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
-  url("assets/images/Applet Geometry BG.png");  
+  url("/public/assets/images/darkbg2.jpg");  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
