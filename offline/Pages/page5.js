@@ -66,13 +66,13 @@ const page5 = ({
     })), /*#__PURE__*/React.createElement("div", {
       className: "h-[18%] w-full flex justify-center items-center gap-[8vw]"
     }, /*#__PURE__*/React.createElement("div", {
-      className: "w-[20%] h-full rounded-[2vh] border-dashed border-[0.4vh] border-[#747474] flex items-center justify-center"
+      className: `w-[20%] h-full rounded-[2vh] ${selectedImage1 ? 'bg-blue-500 border-[#42b0f9] border-solid' : 'bg-gray-500 border-dashed border-[#ffffff]'} border-[0.4vh] flex items-center justify-center`
     }, selectedImage1 && /*#__PURE__*/React.createElement("img", {
       src: selectedImage1,
       alt: "selected",
       className: "max-w-full max-h-full object-contain"
     })), /*#__PURE__*/React.createElement("div", {
-      className: "w-[20%] h-full rounded-[2vh] border-dashed border-[0.4vh] border-[#747474] flex items-center justify-center"
+      className: `w-[20%] h-full rounded-[2vh] ${selectedImage2 ? 'bg-blue-500 border-[#42b0f9] border-solid' : 'bg-gray-500 border-dashed border-[#ffffff]'} border-[0.4vh] flex items-center justify-center`
     }, selectedImage2 && /*#__PURE__*/React.createElement("img", {
       src: selectedImage2,
       alt: "selected",
@@ -86,12 +86,16 @@ const page5 = ({
     }, selectedName2)), /*#__PURE__*/React.createElement("div", {
       className: "h-[20%] w-full flex justify-center items-center gap-[5vw]"
     }, /*#__PURE__*/React.createElement("div", {
-      className: `h-[8vw]  ${isImagePlaced('./public/assets/images/Goat.png') ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:opacity-80'}`,
+      className: `h-[8vw] relative ${isImagePlaced('./public/assets/images/Goat.png') ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:opacity-80'}`,
       onClick: () => handleImageClick('./public/assets/images/Goat.png', data.Table.tableBody.row1.cell1)
     }, /*#__PURE__*/React.createElement("img", {
       src: "./public/assets/images/Goat.png",
       alt: "goat",
       className: "w-full h-full"
+    }), !selectedImage1 && !selectedImage2 && /*#__PURE__*/React.createElement("img", {
+      src: "./public/assets/gif/finger tap.gif",
+      alt: "finger tap",
+      className: "absolute top-0 left-0 w-full h-full object-contain pointer-events-none"
     })), /*#__PURE__*/React.createElement("div", {
       className: `h-[8vw]  ${isImagePlaced('./public/assets/images/Chicken.png') ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:opacity-80'}`,
       onClick: () => handleImageClick('./public/assets/images/Chicken.png', data.Table.tableBody.row2.cell1)

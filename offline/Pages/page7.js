@@ -185,7 +185,7 @@ const page7 = ({
       const lessNameForSentence = formatAnimalName(selectedLessAnimal, lessCount);
       return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("strong", {
         className: "text-[#F9A942]"
-      }, data.feedbackArea.text1), " ", moreNameForSentence, " ", data.feedbackArea.text2, " ", lessNameForSentence,  data.feedbackArea.text3, " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("strong", {
+      }, data.feedbackArea.text1), " ", moreNameForSentence, " ", data.feedbackArea.text2, " ", lessNameForSentence, data.feedbackArea.text3, " ", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), " ", /*#__PURE__*/React.createElement("strong", {
         className: "text-[#F9A942]"
       }, data.feedbackArea.hint, " ", moreNameForSentence));
     }
@@ -213,7 +213,9 @@ const page7 = ({
       const name2ForSentence = formatAnimalName(selectedName2, number2);
       const moreNameForSentence = formatAnimalName(selectedMoreAnimal, moreCount);
       const lessNameForSentence = formatAnimalName(selectedLessAnimal, lessCount);
-      return /*#__PURE__*/React.createElement(React.Fragment, null, data.wrongFeedbackArea.text1, " ", name1ForSentence, " ", data.wrongFeedbackArea.and, " ", name2ForSentence, " ", data.wrongFeedbackArea.text2, ".", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("br", null), data.wrongFeedbackArea.text3, " ", moreNameForSentence, " = ", data.wrongFeedbackArea.text4, " ", lessNameForSentence, " - ", data.wrongFeedbackArea.text4, " ", moreNameForSentence, ".");
+      return /*#__PURE__*/React.createElement(React.Fragment, null, data.wrongFeedbackArea.text1, " ", name1ForSentence, " ", data.wrongFeedbackArea.and, " ", name2ForSentence, " ", data.wrongFeedbackArea.text2, ".", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("strong",{
+        className: "text-[#F9A942]"
+      }, data.wrongFeedbackArea.text3, " ", moreNameForSentence, " = ", data.wrongFeedbackArea.text4, " ", lessNameForSentence, " - ", data.wrongFeedbackArea.text4, " ", moreNameForSentence, "."));
     }
     return null;
   };
@@ -322,13 +324,13 @@ const page7 = ({
     })))))), /*#__PURE__*/React.createElement("div", {
       className: "h-[18%] w-full flex justify-center items-center gap-[8vw]"
     }, /*#__PURE__*/React.createElement("div", {
-      className: "w-[20%] h-full rounded-[2vh] border-dashed border-[0.4vh] flex items-center justify-center border-[#747474] cursor-not-allowed"
+      className: "w-[20%] h-full rounded-[2vh] border-solid bg-blue-500 border-[0.4vh] flex items-center justify-center border-[#42b0f9] cursor-not-allowed"
     }, selectedImage1 && /*#__PURE__*/React.createElement("img", {
       src: selectedImage1,
       alt: "selected",
       className: "max-w-full max-h-full object-contain"
     })), /*#__PURE__*/React.createElement("div", {
-      className: "w-[20%] h-full rounded-[2vh] border-dashed border-[0.4vh] flex items-center justify-center border-[#747474] cursor-not-allowed"
+      className: "w-[20%] h-full rounded-[2vh] border-solid bg-blue-500 border-[0.4vh] flex items-center justify-center border-[#42b0f9] cursor-not-allowed"
     }, selectedImage2 && /*#__PURE__*/React.createElement("img", {
       src: selectedImage2,
       alt: "selected",

@@ -100,14 +100,17 @@ const page4 = ({
         const row = tbodyRows[selectedRowIndex1];
         const rowRect = row.getBoundingClientRect();
         const wrapperRect = wrapper.getBoundingClientRect();
-        const topPx = rowRect.top - wrapperRect.top;
-        const leftPx = rowRect.left - wrapperRect.left;
-        const widthPx = rowRect.width;
-        const heightPx = rowRect.height;
-        rowOutlineRef1.current.style.top = `${topPx / viewportHeight * 100}vh`;
-        rowOutlineRef1.current.style.left = "3.54252vw";
-        rowOutlineRef1.current.style.width = "62.7106vw";
-        rowOutlineRef1.current.style.height = `${heightPx / viewportHeight * 100}vh`;
+        // Only update if we have valid dimensions
+        if (rowRect.height > 0 && wrapperRect.height > 0) {
+          const topPx = rowRect.top - wrapperRect.top;
+          const leftPx = rowRect.left - wrapperRect.left;
+          const widthPx = rowRect.width;
+          const heightPx = rowRect.height;
+          rowOutlineRef1.current.style.top = `${topPx / viewportHeight * 100}vh`;
+          rowOutlineRef1.current.style.left = "3.54252vw";
+          rowOutlineRef1.current.style.width = "62.7106vw";
+          rowOutlineRef1.current.style.height = `${heightPx / viewportHeight * 100}vh`;
+        }
       }
 
       // Position outline for second selected row (if different from first)
@@ -115,19 +118,35 @@ const page4 = ({
         const row = tbodyRows[selectedRowIndex2];
         const rowRect = row.getBoundingClientRect();
         const wrapperRect = wrapper.getBoundingClientRect();
-        const topPx = rowRect.top - wrapperRect.top;
-        const leftPx = rowRect.left - wrapperRect.left;
-        const widthPx = rowRect.width;
-        const heightPx = rowRect.height;
-        rowOutlineRef2.current.style.top = `${topPx / viewportHeight * 100}vh`;
-        rowOutlineRef2.current.style.left = "3.54252vw";
-        rowOutlineRef2.current.style.width = "62.7106vw";
-        rowOutlineRef2.current.style.height = `${heightPx / viewportHeight * 100}vh`;
+        // Only update if we have valid dimensions
+        if (rowRect.height > 0 && wrapperRect.height > 0) {
+          const topPx = rowRect.top - wrapperRect.top;
+          const leftPx = rowRect.left - wrapperRect.left;
+          const widthPx = rowRect.width;
+          const heightPx = rowRect.height;
+          rowOutlineRef2.current.style.top = `${topPx / viewportHeight * 100}vh`;
+          rowOutlineRef2.current.style.left = "3.54252vw";
+          rowOutlineRef2.current.style.width = "62.7106vw";
+          rowOutlineRef2.current.style.height = `${heightPx / viewportHeight * 100}vh`;
+        }
       }
     };
-    updateOutlines();
-    // window.addEventListener("resize", updateOutlines);
-    // return () => window.removeEventListener("resize", updateOutlines);
+    
+    // Use requestAnimationFrame to wait for the next paint cycle, then add a small delay
+    // to ensure the table is fully laid out before calculating positions
+    const timeoutId = setTimeout(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          updateOutlines();
+        });
+      });
+    }, 50);
+    
+    window.addEventListener("resize", updateOutlines);
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", updateOutlines);
+    };
   }, [selectedName1, selectedName2, selectedRowIndex1, selectedRowIndex2]);
   const handleCorrectAnswer = optionKey => {
     playSound('correct');
@@ -302,7 +321,7 @@ const page4 = ({
       key: `row-outline-${selectedRowIndex1}`,
       className: "row-outline highlighted",
       ref: rowOutlineRef1,
-    
+
     }, animalImage1 && number1 > 0 && /*#__PURE__*/React.createElement("div", {
       className: "row-outline-images"
     }, Array.from({
@@ -330,13 +349,13 @@ const page4 = ({
     })))))), /*#__PURE__*/React.createElement("div", {
       className: "h-[18%] w-full flex justify-center items-center gap-[8vw]"
     }, /*#__PURE__*/React.createElement("div", {
-      className: "w-[20%] h-full rounded-[2vh] border-dashed border-[0.4vh] flex items-center justify-center border-[#747474] cursor-not-allowed"
+      className: "w-[20%] h-full rounded-[2vh] border-solid bg-blue-500 border-[0.4vh] flex items-center justify-center border-[#42b0f9] cursor-not-allowed"
     }, selectedImage1 && /*#__PURE__*/React.createElement("img", {
       src: selectedImage1,
       alt: "selected",
       className: "max-w-full max-h-full object-contain"
     })), /*#__PURE__*/React.createElement("div", {
-      className: "w-[20%] h-full rounded-[2vh] border-dashed border-[0.4vh] flex items-center justify-center border-[#747474] cursor-not-allowed"
+      className: "w-[20%] h-full rounded-[2vh] border-solid bg-blue-500 border-[0.4vh] flex items-center justify-center border-[#42b0f9] cursor-not-allowed"
     }, selectedImage2 && /*#__PURE__*/React.createElement("img", {
       src: selectedImage2,
       alt: "selected",

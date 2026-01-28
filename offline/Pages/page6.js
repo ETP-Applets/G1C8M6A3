@@ -108,20 +108,20 @@ const page6 = ({
     return false;
   };
   const getBoxClassName = boxNumber => {
-    let baseClass = "w-[20%] h-full rounded-[2vh] border-dashed border-[0.4vh] flex items-center justify-center transition-all";
+    let baseClass = "w-[20%] h-full rounded-[2vh] bg-[#F9A942] flex items-center justify-center transition-all";
 
     // Check if this box is disabled
     if (isBoxDisabled(boxNumber)) {
-      return `${baseClass} border-[#747474] opacity-50 cursor-not-allowed`;
+      return `${baseClass}  opacity-50 cursor-not-allowed`;
     }
     if (selectedBox === boxNumber) {
       if (isCorrect) {
-        return `${baseClass} border-green-500 bg-green-500/20 cursor-pointer`;
+        return `${baseClass} border-green-500 bg-green-500/80 cursor-pointer`;
       } else {
-        return `${baseClass} border-red-500 bg-red-500/20 cursor-pointer`;
+        return `${baseClass} border-red-500 bg-red-500/80 cursor-pointer`;
       }
     }
-    return `${baseClass} border-[#747474] hover:border-[#F9A942] cursor-pointer`;
+    return `${baseClass} hover:border-[#F9A942] cursor-pointer`;
   };
   const getFeedbackMessage = () => {
     if (!feedbackText) {
